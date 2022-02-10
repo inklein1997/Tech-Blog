@@ -10,3 +10,7 @@ const userData = [
         password: '12345678',
     }
 ]
+
+const seedUser = () => User.bulkCreate(userData)
+
+module.exports = seedUser
