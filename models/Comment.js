@@ -14,7 +14,7 @@ Comment.init(
         user_id: {
             type: DataTypes.STRING,
             references: {
-                model: 'user',
+                model: 'User',
                 key: 'id',
             }
         },
@@ -25,7 +25,7 @@ Comment.init(
     {
         sequelize,
         timestamps: true,
-        modelName: 'comment'
+        modelName: 'Comment'
     }
 );
 
