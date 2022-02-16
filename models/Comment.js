@@ -9,7 +9,7 @@ Comment.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            // autoIncrement: true
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -33,7 +33,7 @@ Comment.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment'
+        modelName: 'Comment'
     }
 );
 
