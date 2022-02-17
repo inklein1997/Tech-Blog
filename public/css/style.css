@@ -109,3 +109,40 @@ header {
 textarea {
     border: none;
 }
+
+/* Your Dashboard */
+#createPostButton {
+    background-color: var(--brown);
+    color: white;
+    border-radius: 6px;
+    border: none;
+    padding:7px 22px;
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+#yourPostsContainer {
+    color: white;
+    height: 90%;
+    overflow-y: scroll;
+}
+
+#yourPostsContainer::-webkit-scrollbar {
+    display: none;
+}
+
+#yourPostsContainer div {
+    background-color: var(--grey);
+    padding: 10px;
+    border-radius: 6px;
+    transition: .3s ease-in-out;
+}
+
+#yourPostsContainer div:hover {
+    cursor: pointer;
+    background-color: #3b3b3b;
+}
+
+#yourPostsContainer div h3 {
+    font-size: 20px;
+}
