@@ -25,12 +25,14 @@ router.post('/', async (req, res) => {
                 password: req.body.password
             })
             
+            // req.session.save(() => {
+            //     req.session.user = userData.user
+            //     req.session.logged_in = true
+            // })
+
             res.status(200).json(userData);
 
-            await req.session.save(() => {
-                req.session.user = userData.user
-                req.session.logged_in = true
-            })
+            
         }
 
     } catch (err) {
