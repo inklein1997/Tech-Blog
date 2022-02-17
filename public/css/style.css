@@ -5,6 +5,14 @@
     --grey: #666666;
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+    margin:0!important;
+}
+
 a {
     text-decoration: none!important;
     font-size: 2vh;
@@ -64,4 +72,32 @@ header {
     margin: 0;
     line-height: 1.5;
     padding:1.5vh 2vw;
+}
+
+/* Log in and Sign Up page */
+
+.login-signup_form {
+    padding: 0 2vh;
+}
+
+#usernameInputSignIn,
+#passwordInputSignIn,
+#usernameInputSignUp,
+#passwordInputSignUp {
+    border: none;
+    height: 40px;    
+}
+
+#loginButton,
+#signupButton {
+    border: none;
+    border-radius: 6px;
+    background-color: var(--grey);
+    padding:7px 0;
+    font-size: 20px;
+    color: white;
+}
+
+.redirectLink {
+    padding: 0 2vw;
 }
