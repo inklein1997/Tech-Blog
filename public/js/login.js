@@ -13,7 +13,7 @@ const logIn = async (e) => {
             document.location.replace('/dashboard')
         } else {
             console.log(response)
-            alert('unable to create an account')
+            alert('unable to log into account')
         }
     } else {
         alert('you MUST enter both a username AND a password')
