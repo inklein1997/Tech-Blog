@@ -13,12 +13,17 @@ h1, h2, h3, h4, h5, h6, label {
     margin:0!important;
 }
 
+body {
+    height: 100vh;
+}
+
 a {
     text-decoration: none!important;
     font-size: 2vh;
 }
 
 nav {
+    height:7%;
     background-color: var(--brown);
     padding: 1vh 0;
     color:var(--mint)!important;
@@ -26,6 +31,7 @@ nav {
 
 /* FOR TECHBLOG HEADER AND YOUR DASHBOARD PARTIALS */
 header {
+    height:15%;
     background-color: var(--brown);
     padding: 2vh 0;
 }
@@ -44,7 +50,8 @@ header {
 /* For the Homepage */
 #homepage_background {
     background-color: var(--mint);
-    height: 84.25vh;
+    /* height: 84.25vh; */
+    height: 78%;
     padding: 3vh 3vw;
 }
 
@@ -55,7 +62,6 @@ header {
 .post_header {
     background-color: var(--brown);
     color: var(--mint);
-    height: 42px;
     padding:1vh 2vw;
 }
 
@@ -92,7 +98,9 @@ header {
 
 #loginButton,
 #signupButton,
-#submitCommentButton {
+#submitCommentButton,
+#deletePostButton,
+#updatePostButton {
     border: none;
     border-radius: 6px;
     background-color: var(--grey);
@@ -108,6 +116,7 @@ header {
 /* Thread Page */
 textarea {
     border: none;
+    padding: 10px 20px!important
 }
 
 /* Your Dashboard */
