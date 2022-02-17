@@ -90,7 +90,9 @@ header {
 #usernameInputSignIn,
 #passwordInputSignIn,
 #usernameInputSignUp,
-#passwordInputSignUp {
+#passwordInputSignUp,
+#newPostTitle,
+#editPostTitle {
     border: none;
     height: 40px;
     padding: 20px!important;
@@ -100,14 +102,26 @@ header {
 #signupButton,
 #submitCommentButton,
 #deletePostButton,
-#updatePostButton {
+#updatePostButton,
+#submitPostButton {
     border: none;
     border-radius: 6px;
     background-color: var(--grey);
     padding:7px 0;
     font-size: 20px;
     color: white;
+    transition: .2s ease-in-out;
 }
+
+#loginButton:hover,
+#signupButton:hover,
+#submitCommentButton:hover,
+#deletePostButton:hover,
+#updatePostButton:hover,
+#submitPostButton:hover {
+    background-color: #3b3b3b;
+}
+
 
 .redirectLink {
     padding: 0 2vw;
