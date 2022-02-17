@@ -1,4 +1,5 @@
-const updatePost = async () => {
+const updatePost = async (e) => {
+    e.preventDefault()
     const newTitleInput = document.querySelector('#editPostTitle').value.trim();
     const newContentInput = document.querySelector('#editPostContent').value.trim();
     const postID = window.location.pathname.split('/').pop();
