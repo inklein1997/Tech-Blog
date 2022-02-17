@@ -55,6 +55,7 @@ header {
 .post_header {
     background-color: var(--brown);
     color: var(--mint);
+    height: 42px;
     padding:1vh 2vw;
 }
 
@@ -90,7 +91,8 @@ header {
 }
 
 #loginButton,
-#signupButton {
+#signupButton,
+#submitCommentButton {
     border: none;
     border-radius: 6px;
     background-color: var(--grey);
@@ -101,4 +103,9 @@ header {
 
 .redirectLink {
     padding: 0 2vw;
+}
+
+/* Thread Page */
+textarea {
+    border: none;
 }
