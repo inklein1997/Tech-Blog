@@ -9,9 +9,9 @@ router.get("/", async (req, res) => {
                 exclude: 'password'
             }
         }]
-    })
+    });
     const posts = postData.map(post => post.get({ plain: true }));
-    // console.log(posts)
+    // console.log(posts);
 
     res.render("homepage", {
         posts
@@ -27,7 +27,16 @@ router.get('/signup', async (req, res) => {
 });
 
 router.get('/dashboard', async (req, res) => {
-    res.render("dashboard");
+    const postData = await User.findByPk(1, {
+        attributes: { exclude: 'password' },
+        include: [{ model: Post }],
+    });
+    const posts = postData.get({ plain:true }).posts;
+    // console.log(posts);
+
+    res.render("dashboard", {
+        posts
+    });
 });
 
 router.get('/thread/:id', async (req, res) => {
