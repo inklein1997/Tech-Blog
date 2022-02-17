@@ -49,7 +49,13 @@ router.get('/newpost', async (req, res) => {
 });
 
 router.get('/editpost/:id', async (req, res) => {
-    res.render("editpost");
+    const postData = await Post.findByPk(req.params.id);
+    const post = postData.get({ plain: true })
+    console.log(post)
+
+    res.render("editpost", {
+        post
+    });
 });
 
 module.exports = router
