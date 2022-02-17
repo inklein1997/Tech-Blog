@@ -17,7 +17,8 @@ router.get('/dashboard', async (req, res) => {
     res.render("dashboard");
 });
 
-router.get('/thread', async (req, res) => {
+router.get('/thread/:id', async (req, res) => {
+    
     res.render("thread");
 });
 
