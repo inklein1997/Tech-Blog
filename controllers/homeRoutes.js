@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
         }]
     });
     const posts = postData.map(post => post.get({ plain: true }));
-    // console.log(posts);
+    console.log(posts);
 
     res.render("homepage", {
         posts
@@ -31,17 +31,51 @@ router.get('/dashboard', async (req, res) => {
         attributes: { exclude: 'password' },
         include: [{ model: Post }],
     });
-    const posts = postData.get({ plain:true }).posts;
+    const posts = postData.get({ plain: true }).posts;
     // console.log(posts);
 
+    req.session.logged_in = true
+
     res.render("dashboard", {
-        posts
+        posts,
+        loggedIn: req.session.logged_in
     });
 });
 
 router.get('/thread/:id', async (req, res) => {
+    const postData = await Post.findByPk(req.params.id, {
+        where: {
+            post_id: req.params.id
+        }, include: [{
+            model:User,
+            attributes: {
+                exclude:'password',
+            },
+        }],
+    });
+    const post = postData.get({ plain: true })
+    console.log(post);
 
-    res.render("thread");
+
+    const commentData = await Comment.findAll({
+        where: {
+            post_id: req.params.id
+        }, include: [{
+            model: User,
+            attributes: {
+                exclude: 'password'
+            },
+        }],
+    });
+    const comments = commentData.map(comment => comment.get({ plain: true }))
+    // console.log(comments[0].content)
+
+
+    res.render("thread", {
+        post,
+        comments,
+        loggedIn: req.session.logged_in,
+    });
 });
 
 router.get('/newpost', async (req, res) => {
@@ -50,6 +84,7 @@ router.get('/newpost', async (req, res) => {
 
 router.get('/editpost/:id', async (req, res) => {
     const postData = await Post.findByPk(req.params.id);
+
     const post = postData.get({ plain: true })
     console.log(post)
 
@@ -57,5 +92,10 @@ router.get('/editpost/:id', async (req, res) => {
         post
     });
 });
+
+router.get('/logout', async (req, res) => {
+    req.session.destroy();
+    res.redirect('/')
+})
 
 module.exports = router

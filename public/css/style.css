@@ -137,6 +137,15 @@ textarea {
     padding: 10px 20px!important
 }
 
+#commentSection {
+    height:70%;
+    overflow-y: scroll;
+};
+
+#commentSection::-webkit-scrollbar {
+    display: none;
+}
+
 /* Your Dashboard */
 #createPostButton {
     background-color: var(--brown);
