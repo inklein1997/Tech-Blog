@@ -14,32 +14,48 @@ router.get("/", async (req, res) => {
     console.log(posts);
 
     res.render("homepage", {
-        posts
+        posts,
+        loggedIn: req.session.logged_in,
+        username: req.session.username,
+        user_id: req.session.user_id,
     });
 });
 
 router.get('/login', async (req, res) => {
-    res.render("login");
+    res.render("login", {
+        loggedIn: req.session.logged_in,
+        username: req.session.username,
+        user_id: req.session.user_id,
+    });
 });
 
 router.get('/signup', async (req, res) => {
-    res.render("signup");
+    res.render("signup", {
+        loggedIn: req.session.logged_in,
+        username: req.session.username,
+        user_id: req.session.user_id,
+    });
 });
 
 router.get('/dashboard', async (req, res) => {
-    const postData = await User.findByPk(1, {
-        attributes: { exclude: 'password' },
-        include: [{ model: Post }],
-    });
-    const posts = postData.get({ plain: true }).posts;
-    // console.log(posts);
+    console.log(req.session.user_id)
+    if (req.session.logged_in) {
+        const postData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: 'password' },
+            include: [{ model: Post }],
+        });
+        const posts = postData.get({ plain: true }).posts;
+        // console.log(posts);
+        res.render("dashboard", {
+            posts,
+            loggedIn: req.session.logged_in,
+            username: req.session.username,
+            user_id: req.session.user_id,
+        });
+    } else {
+        res.redirect('/login')
+    }
 
-    req.session.logged_in = true
-
-    res.render("dashboard", {
-        posts,
-        loggedIn: req.session.logged_in
-    });
 });
 
 router.get('/thread/:id', async (req, res) => {
@@ -47,14 +63,14 @@ router.get('/thread/:id', async (req, res) => {
         where: {
             post_id: req.params.id
         }, include: [{
-            model:User,
+            model: User,
             attributes: {
-                exclude:'password',
+                exclude: 'password',
             },
         }],
     });
     const post = postData.get({ plain: true })
-    console.log(post);
+    // console.log(post);
 
 
     const commentData = await Comment.findAll({
@@ -75,11 +91,17 @@ router.get('/thread/:id', async (req, res) => {
         post,
         comments,
         loggedIn: req.session.logged_in,
+        username: req.session.username,
+        user_id: req.session.user_id,
     });
 });
 
 router.get('/newpost', async (req, res) => {
-    res.render("newpost");
+    res.render("newpost", {
+        loggedIn: req.session.logged_in,
+        username: req.session.username,
+        user_id: req.session.user_id,
+    });
 });
 
 router.get('/editpost/:id', async (req, res) => {
@@ -89,7 +111,10 @@ router.get('/editpost/:id', async (req, res) => {
     console.log(post)
 
     res.render("editpost", {
-        post
+        post,
+        loggedIn: req.session.logged_in,
+        username: req.session.username,
+        user_id: req.session.user_id,
     });
 });
 

@@ -20,13 +20,23 @@ body {
 a {
     text-decoration: none!important;
     font-size: 2vh;
+    color: var(--mint) !important;
+}
+
+#navbar {
+    height:7%;
+    background-color: var(--brown);
+    padding:0 3vw;
 }
 
 nav {
-    height:7%;
-    background-color: var(--brown);
+    /* height:7%; */
     padding: 1vh 0;
     color:var(--mint)!important;
+}
+
+#welcomeName {
+    color: var(--mint);
 }
 
 /* FOR TECHBLOG HEADER AND YOUR DASHBOARD PARTIALS */
