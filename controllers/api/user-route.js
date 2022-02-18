@@ -44,20 +44,29 @@ router.post('/login', async (req, res) => {
             where: {
                 user: req.body.user
             }
-        })
-        console.log(`user id is ${userData.id}`)
+        });
+        // console.log(`user id is ${userData.id}`)
         if (!userData) {
             res.status(404).json({ message: 'Incorrect email or password!  Please try again!' })
-        } else {
-            if (req.body.password == userData.password) {
-                console.log('testsestsetsetststet')
-                req.session.save(() => {
-                    req.session.user_id = userData.id
-                    req.session.logged_in = true;
-                    req.session.username = req.body.user
-                    res.status(200).json({ user: userData, message: "You are now logged in!" })
-                })
-            }
+            return
+        };
+
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if(!validPassword) {
+            res.status(404).json({ message: 'Incorrect email or password!  Please try again!' })
+            return
+        };
+
+        if (req.body.password == userData.password) {
+            console.log('testsestsetsetststet')
+            req.session.save(() => {
+                req.session.user_id = userData.id
+                req.session.logged_in = true;
+                req.session.username = req.body.user
+                res.status(200).json({ user: userData, message: "You are now logged in!" })
+            })
+
         }
 
 
