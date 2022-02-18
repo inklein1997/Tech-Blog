@@ -18,7 +18,7 @@ User.init(
         },
         user: {
             type: DataTypes.STRING,
-            unique:true,
+            unique: true,
             allowNull: false,
         },
         password: {
@@ -27,25 +27,22 @@ User.init(
         }
     },
     {
-        hooks: {
-            beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
-            },
-            afterCreate: async (updatedUserData) => {
-                if (updatedUserData.password) {
-                    updatedUserData.password = await bcrypt.hash(updatedUserData, 10);
-                }
-                return updatedUserData
-            }
-        }
-    },
-    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user'
+        modelName: 'user',
+        hooks: {
+            beforeCreate: async (newUserData) => {
+                console.log(newUserData.password)
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
+            },
+            // afterCreate: async (updatedUserData) => {
+            //     updatedUserData.password = await bcrypt.hash(updatedUserData.toString(), 10);
+            //     return updatedUserData
+            // }
+        }
     }
 );
 

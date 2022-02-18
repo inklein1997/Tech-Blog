@@ -57,8 +57,6 @@ router.post('/login', async (req, res) => {
             res.status(404).json({ message: 'Incorrect email or password!  Please try again!' })
             return
         };
-
-        if (req.body.password == userData.password) {
             console.log('testsestsetsetststet')
             req.session.save(() => {
                 req.session.user_id = userData.id
@@ -66,10 +64,6 @@ router.post('/login', async (req, res) => {
                 req.session.username = req.body.user
                 res.status(200).json({ user: userData, message: "You are now logged in!" })
             })
-
-        }
-
-
     } catch (err) {
         res.status(500).json(err)
     }
