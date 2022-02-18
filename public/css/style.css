@@ -55,6 +55,7 @@ header {
     text-align: center;
     padding: 0.5vh;
     box-shadow: 0.75vh 0.75vh 0 var(--light-grey);
+    margin: 0 30px!important;
 }
 
 /* For the Homepage */
@@ -141,6 +142,10 @@ header {
     padding: 0 2vw;
 }
 
+.redirectLink {
+    color:black!important;
+}
+
 /* Thread Page */
 textarea {
     border: none;
@@ -191,4 +196,10 @@ textarea {
 
 #yourPostsContainer div h3 {
     font-size: 20px;
+}
+
+@media screen and (max-width: 500px) {
+    #welcomeName {
+        display:none;
+    }
 }

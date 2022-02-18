@@ -9,7 +9,7 @@ const postData = [
     {
         title: 'The worst part about Javascript...',
         description: 'Callback Hell...',
-        user_id: 1,
+        user_id: 2,
     },
 ]
 
