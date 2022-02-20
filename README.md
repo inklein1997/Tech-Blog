@@ -36,7 +36,7 @@
 
 ## Installation Instructions
 
-1. Since **KeepUP** is primarily a NodeJS application, you must have NodeJS downloaded. Please download [here](https://nodejs.org/en/download/) if you have not done so previously.
+1. Since **Tech Blog** is primarily a NodeJS application, you must have NodeJS downloaded. Please download [here](https://nodejs.org/en/download/) if you have not done so previously.
 
 <br>
 
@@ -94,12 +94,11 @@ node server.js
 
 | Feature | Instructions |
 | ----------- | ----------- |
-| Personal Notes | 1. To add a note, **click the pencil/paper** in the top left corner of the notes section  <br> 2. To delete a note, **click the trashcan** in the top left corner of the note <br> 3. To access the note content, **click the space between the note title and trashcan** <br> 4. To edit the note, **click the text** you wish to edit and **start typing** |
-| Creating a Project | 1. To create a project, **click 'Starting a new project?'** <br> 2. You must then add yourself to that project by **clicking 'Add members to project'** <br> 3. Click your project in the *Your Workspaces section* |
-| Trello Board | 1. To add a list item, **click '+ add new list'** <br> 2. To add a task item to a list, **click '+ Add task'** <br> 3. To edit task or list text, **click the text** you would like to edit and **start typing** <br> 4. To delete a list, **click the trash can** in the top left corner of that list <br> *NOTE:* If you would like to delete a task item, you must put it into a list item that you then delete <br> 5. You may toggle on/off the text editing by **clicking the edit text toggle** <br> 6. You must **click the moveable task/moveable list toggle**.  This feature gives the user a better user experience. |
-| Chat | 1. To send a message, simply **type your message** into the text box and **click send** <br> 2. To send your geolocation, **click the Google Maps Icon** next to the send button |
-| Update Profile | 1. To update your profile, **click your profile icon** and **click 'Edit Profile'** |
-| Logout | 1. To log out, **click your profile icon** in the top right corner of the page and **click logout** |
+| Login/SignUp | To have access to creating and editing posts, or post comments on existing threads, please sign in/create an account <br>*Note* You only have access to view threads without logging in. |
+| Creating a Post | 1. **Click Dashboard** in the nav bar towards the top of the page <br>2. **Click Add Post** at the bottom of the dashboard <br>**Entered title and content** into their respective fields, and then **submit** |
+| Update a Post | 1. To update one of your own posts, **visit your dashboard** <br>2.  **Click update button** and edit values within that field |
+| Delete a Post | 1. To delete one of your own posts, **visit your dashboard** <br>2.  **Click delete button** to delete that post.  <br>*Note* This will delete any comments that are within the posts thread as well. |
+| Comment on a Post | 1. You may comment on anyone's post by **navigating to the homepage** <br>. 2. Click the title of whatever post you would like to comment on <br>3. Enter comment and submit. |
 
 
 
@@ -113,15 +112,13 @@ This project is licensed under the terms of [MIT](https://opensource.org/license
 
 ## Contribution Instructions
 
-Before contributing to **KeepUP**, please read this [code of conduct](code_of_conduct.md)[^1].<br>
+Before contributing to **Tech Blog**, please read this [code of conduct](code_of_conduct.md)[^1].<br>
 Here's how you can contribute...
 1. Add issue or recommendation for improvement to Issues tab on Github.
 2. Submit pull request for review.
 
 ## Acknowledgements
-
-Toggle on Project page was created by [Sergey Zakharov](https://codepen.io/Multiple-Illusionsi/pen/PoYvydd);
-Animated checkmark on /project page was created by [Gary](https://codepen.io/gbuddell/pen/KwoRLX);
+Original design of application originated from example given by the University of Texas at Austin BootCamp curriculumn
 
 ## Questions?
 
