@@ -2,7 +2,7 @@ const postComment = async (e) => {
     e.preventDefault();
     const commentInput = document.querySelector('.commentInput').value.trim();
     const postID = window.location.pathname.split('/').pop();
-    const userID = '1';
+    const userID = document.querySelector('#welcomeName').getAttribute('data-user-id');
 
     if (commentInput) {
         const response = await fetch('/api/comment', {
