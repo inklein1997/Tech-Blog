@@ -6,10 +6,6 @@ let sequelize;
 if (process.env.JAWSDB_URL) {
     sequelize = new Sequelize(process.env.JAWSDB_URL, {
         host: 'eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        dialect: 'mysql',
-        dialectOptions: {
-            decimalNumbers: true,
-        }
     });
 } else {
     sequelize = new Sequelize(
